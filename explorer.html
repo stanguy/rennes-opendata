@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+<style type="text/css">
+  div#explorer { width: 24%; border-right: 1px solid #000; height: 100%; position: absolute; top: 0; left: 0; }
+  div#introspection { width: 75%; border: 0; margin: 0; padding: 0; height: 100%; position: absolute; top:0;right:0;}
+  div#introspection pre { overflow: auto; width: 100%; height: 100%; margin: 0;}
+  input.required { border: 1px solid red; }
+  label { width: 100%; float: left; padding: 10px 0 5px 5px; }
+  input,select { margin: 0 0 0 10px; }
+</style>
+
+
+  </head>
+  
+  <body>
+    <div id="explorer">
+      <label for="api_key">API Key:</label>
+      <input id="api_key" name="api_key" type="text"></input>
+      <select id="methods"><option>---</option></select>
+      <div id="parameters"></div>
+    </div>
+    <div id="introspection"><pre></pre></div>
+  </body>
+<script type="text/javascript"
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript"
+        src="explorer.js"></script>
+</html>
