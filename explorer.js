@@ -130,6 +130,20 @@ function handleData( data,status,xhr,method_name,callback ) {
     }
     var data_key =  method_name.substr( 3 );
     var real_data = data.opendata.answer.data[data_key];
+    if( undefined === real_data ) {
+        var keys = [];
+        $.each( data.opendata.answer.data, function(k,v) {
+            keys.push(k);
+        });
+        if( keys.length == 1 ) {
+            real_data = data.opendata.answer.data[keys[0]];
+        } else {
+            real_data = [];
+            for( var i = 0; i < keys.length; ++i ) {
+                $.merge( real_data, data.opendata.answer.data[keys[i]] );
+            }
+        }
+    }
     if( callback !== undefined ) {
         target.append($('<h3>Select a value</h3>'));
     }
