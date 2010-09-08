@@ -85,10 +85,18 @@ var RENNES_OPENDATA_METHODS = {
     },
     getcalendar: {
         organization: {
-            required: true
+            required: true,
+            refers_to: {
+                method: 'getorganization',
+                val: 'id'
+            }
         },
         receptiontype: {
-            required: true
+            required: true,
+            refers_to: {
+                method: 'getreceptiontype',
+                val: 'id'
+            }
         },
         year: {
             required: true
