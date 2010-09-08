@@ -1,0 +1,14 @@
+
+h1. Rennes OpenData
+
+This repository regroups various tools and sketches to manipulate "open data offered by the city of Rennes / Rennes Métropole":http://www.data.rennes-metropole.fr/.
+
+h2. explorer.html
+
+Consider this an interactive API explorer. On the left, you will find available methods, and when one is selected, its parameters. If a parameter is mandatory, it will be displayed with a red border. If a parameter is a potential result from another method, a ">" link will be on its right allowing one to jump from one method to the other and selecting a value from the list of results.
+
+Obviously, you must provide your own registered API key.
+
+h1. License
+
+All the code here is under the WTFPL, unless otherwise noted.
