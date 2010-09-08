@@ -223,6 +223,7 @@ function displayMethodParameters( method_name, callback ){
             $('<input>').attr('type','button').val('submit').click( function(){ submitMethod(method_name,callback); } )
         );
     } else {
+        innerDiv.children('input:button').unbind('click').click( function(){ submitMethod(method_name,callback); } );
         innerDiv.show();
     }
 
