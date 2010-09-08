@@ -4,27 +4,33 @@
     <title></title>
 <style type="text/css">
   div#explorer { width: 24%; border-right: 1px solid #000; height: 100%; position: absolute; top: 0; left: 0; }
-  div#introspection { width: 75%; border: 0; margin: 0; padding: 0; height: 100%; position: absolute; top:0;right:0;}
-  div#introspection pre { overflow: auto; width: 100%; height: 100%; margin: 0;}
-  input.required { border: 1px solid red; }
+  div#introspection { width: 75%; border: 0; margin: 0; padding: 0; height: 100%; position: absolute; top:0;right:0; overflow: auto; }
+ input.required { border: 2px inset red; }
   label { width: 100%; float: left; padding: 10px 0 5px 5px; }
-  input,select { margin: 0 0 0 10px; }
+  input,select { margin: 0 0 0 10px; width: 80%; }
+  #introspection div.line { clear: both; border-bottom: 1px solid #000; }
+  #introspection div.line span { float: left; padding: 2px 5px; }
+  #introspection div.line span.label { background-color: #ded; }
+  #parameters { overflow: auto; }
+  #parameters a { display: block; margin: 0 10px 0 2px; background-color: #aaa; float: right; padding: 0 2px 0 5px; width: 10px} 
 </style>
 
-
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
   </head>
   
   <body>
     <div id="explorer">
-      <label for="api_key">API Key:</label>
-      <input id="api_key" name="api_key" type="text"></input>
-      <select id="methods"><option>---</option></select>
+      <div id="head">
+        <label for="api_key">API Key:</label>
+        <input id="api_key" name="api_key" type="text"></input>
+        <select id="methods"><option>---</option></select>
+      </div>
       <div id="parameters"></div>
     </div>
-    <div id="introspection"><pre></pre></div>
+    <div id="introspection"></div>
   </body>
 <script type="text/javascript"
-        src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
 <script type="text/javascript"
         src="explorer.js"></script>
 </html>
