@@ -153,7 +153,7 @@ function submitMethod(method_name,callback){
     var meth_params = null;
     var missing_required = false;
     $.each( RENNES_OPENDATA_METHODS[method_name], function(k,v){
-        var val = $('#p_' + k ).val();
+        var val = $('#p_' + method_name + '_'+ k ).val();
         if ( null == meth_params ) {
             meth_params = {};
         }
@@ -185,7 +185,7 @@ function pushMethod(previous_method, parameter_name, target ){
         var selected = line_data[target.val];
         $('#parameters div').hide();
         $('#parameters div#' + previous_method).show();
-        $('#p_' + parameter_name).val(selected);
+        $('#p_' + previous_method + '_'+ parameter_name).val(selected);
     });
     return false;
 }
@@ -202,9 +202,9 @@ function displayMethodParameters( method_name, callback ){
         innerDiv.append( $('<h2></h2>').text(method_name));
         $.each( RENNES_OPENDATA_METHODS[method_name], function(k,v){
             innerDiv.append(
-                $('<label>').attr('for','p_'+k).html(k)
+                $('<label>').attr('for','p_' + method_name + '_' +k).html(k)
             ).append(
-                $('<input>').attr( 'id', 'p_' + k ).attr('name','p_' + k).attr( 'type', 'text' )
+                $('<input>').attr( 'id', 'p_' + method_name + '_' + k ).attr('name','p_' + method_name + '_'+ k).attr( 'type', 'text' )
             );
             if( v.refers_to !== undefined ) {
                 innerDiv.append(
@@ -216,7 +216,7 @@ function displayMethodParameters( method_name, callback ){
                 );
             }
             if( v.required ) {
-                $('input#p_' + k).addClass('required');
+                $('input#p_' + method_name + '_'+ k).addClass('required');
             }
         });
         innerDiv.append(
