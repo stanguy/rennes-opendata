@@ -144,11 +144,11 @@ function handleData( data,status,xhr,method_name,callback ) {
             }
         }
     }
-    if( callback !== undefined ) {
-        target.append($('<h3>Select a value</h3>'));
-    }
     if( ! $.isArray(real_data) ) {
         real_data = [ real_data ];
+    }
+    if( callback !== undefined ) {
+        target.append($('<h3>Select a value</h3>'));
     }
     $.each( real_data, function(i,x){
         var new_div = $('<div></div>').addClass('line');
@@ -163,7 +163,7 @@ function handleData( data,status,xhr,method_name,callback ) {
             );
         });
         if( undefined !== callback ) {
-            new_div.click( function() { callback(x); });
+            new_div.click( function() { callback(x); target.text(''); });
         }
         target.append(new_div);
     });
