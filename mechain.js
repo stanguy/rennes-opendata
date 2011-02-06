@@ -40,7 +40,7 @@ $(document).ready(function(){
             div.click( onResultClick );
             $('#results').append( div );
         } else {
-            console.log( 'failed to geocode with code ' + status );
+//            console.log( 'failed to geocode with code ' + status );
         }
     }
     function geocodeAll() {
@@ -69,7 +69,7 @@ $(document).ready(function(){
                 continue;
             }
             var geocode_adr = address.street.number + " " + address.street.name + ", " + address.city + ", FRANCE";
-            console.log( 'geocoding ' + geocode_adr );
+//            console.log( 'geocoding ' + geocode_adr );
             geocodingRequests.push({
                 name: name,
                 address: address,
