@@ -1,0 +1,37 @@
+<html>
+  <link href="960gs.css" rel="stylesheet" type="text/css">
+<style>
+  #map { height: 300px; }
+  #form_container { border: 1px solid #0f0; }
+  #results { border: 1px solid #00f; }
+  label, input, .mt10 { margin-top: 10px; }
+  .coords { float: right; }
+  #results div { padding: 10px 0; border-bottom: 1px solid #000; }
+  #results div.ok { background-color: #a6f4a6; }
+  #results div.ko { background-color: #ff9b9b; }
+</style>
+  <body>
+    <div id="content" class="container_12">
+      <div id="map" class="grid_12 alpha omega"></div>
+      <div id="form_container" class="grid_6 alpha mt10">
+        <label class="grid_3 alpha">API Key</label>
+        <input type="text" class="grid_3 omega" id="api_key" name="api_key">
+        <label class="grid_3 alpha">Name filter</label>
+        <input type="text" class="grid_3 omega" id="name_filter" name="name_filter">
+        <label class="grid_3 alpha">Fetch limit</label>
+        <input type="text" class="grid_3 omega" id="fetch_limit" name="fetch_limit" value="10">
+        <label class="grid_3 alpha">Fetch page</label>
+        <input type="text" class="grid_3 omega" id="fetch_page" name="fetch_page" value="0">
+        <input type="submit" class="grid_2 push_3 alpha">
+        <span class="grid_6 alpha omega" id="status"></span>
+      </div>
+      <div id="results" class="grid_6 omega mt10">
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript"
+          src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=geometry&sensor=false"></script>  
+  <script type="text/javascript"
+          src="mechain.js"></script>
+</html>
