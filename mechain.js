@@ -82,7 +82,12 @@ $(document).ready(function(){
     function onSearchResult(d,h,x) {
         l('search done, geocomputing stuff');
         $('#results').html('');
-        var orgs = d.opendata.answer.data.organization;
+        var orgs ;
+        if( $.isArray( d.opendata.answer.data.organization ) ) {
+            orgs = d.opendata.answer.data.organization;
+        } else {
+            orgs = [ d.opendata.answer.data.organization ];
+        }
         var orgs_length = orgs.length;
         for( var i =0 ; i < orgs_length; ++i ) {
             var orga = orgs[i];
