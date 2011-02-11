@@ -3,6 +3,8 @@ $(document).ready(function(){
     var map;
     var geocodingRequests = [];
     var markers = [];
+    var BOUNDS = new google.maps.LatLngBounds( new google.maps.LatLng( 47.937, -1.902 ), new google.maps.LatLng( 48.301, -1.438 ) );
+
 
     function l(msg) {
         $('#status').text(msg);
@@ -50,7 +52,7 @@ $(document).ready(function(){
         }
         var geocoder = new google.maps.Geocoder();
         var request = geocodingRequests.shift();
-        geocoder.geocode( { address: request.geocode_adr }, function(a, b ) { onGeocodingResult(a,b,request.name, request.address ); });
+        geocoder.geocode( { address: request.geocode_adr, bounds: BOUNDS }, function(a, b ) { onGeocodingResult(a,b,request.name, request.address ); });
         setTimeout( geocodeAll, 1000 );
     }
 
