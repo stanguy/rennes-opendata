@@ -6,6 +6,7 @@ jQuery.stanguy = {};
      
      function displayVersionMethods() {
          var version_div = $(this);
+         $('#versions .data .selected').removeClass('selected');
          version_div.addClass('selected');
          var version = version_div.text();
          var api_idx = parseInt( $('#apis .data .selected').data('idx') );
@@ -20,10 +21,12 @@ jQuery.stanguy = {};
 
      function displayAPIVersions() {
          var api_div = $(this);
+         $('#apis .data .selected').removeClass('selected');
          api_div.addClass('selected');
          var idx = parseInt( api_div.data('idx') );
          var api = known_apis[idx];
          $('#versions .data').html('');
+         $('#methods .data').html('');
          $.each( api.versions, function( version, data ) {
              var version_div = $('<div></div>')
                  .append(version);
@@ -37,9 +40,11 @@ jQuery.stanguy = {};
 
          var current_api = null;
          var current_api_index = -1;
+         var should_add = true;
 
          for( var i = 0; i < known_apis.length; ++i ) {
              if ( known_apis[i].name == name ) {
+                 should_add = false;
                  current_api = known_apis[i];
                  current_api_index = i;
                  break;
@@ -52,13 +57,15 @@ jQuery.stanguy = {};
          }
          current_api.versions[version] = struct;
 
-         var method_div = $('<div></div>')
-             .data('idx',current_api_index)
-             .append(name)
-             .click( displayAPIVersions );
-         $('#apis .data').append(
-             method_div
-         );
+         if( should_add ) {
+             var method_div = $('<div></div>')
+                 .data('idx',current_api_index)
+                 .append(name)
+                 .click( displayAPIVersions );
+             $('#apis .data').append(
+                 method_div
+             );
+         }
      };
 })(jQuery);
 

@@ -16,3 +16,34 @@ $.stanguy.register_api(
         }
     }
 );
+
+$.stanguy.register_api( 
+    "Keolis Rennes", 
+    "2.0", {
+        "doc_url": "http://data.keolis-rennes.com/fr/les-donnees/v2.html",
+        methods: {
+            getbikestations: {
+                description: "Retrieves stations",
+                params: {
+                    network: {
+                        type: "enum",
+                        values: [ "levelostar" ]
+                    }
+                }
+            }
+        }
+    }
+);
+
+$.stanguy.register_api( 
+    "Rennes Metropole", 
+    "1.1", {
+        "doc_url": "http://www.data.rennes-metropole.fr/espace-developpeurs/documentation-de-l-api/",
+        methods: {
+            getcity: {
+                description: "Retrieves all cities",
+                params: {}
+            }
+        }
+    }
+);
