@@ -1,0 +1,51 @@
+div { 
+    border: 1px solid red;
+}
+#explorer {
+    position: relative;
+}
+#explorer #head {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 45px;
+    width: 100%;
+}
+#explorer #head fieldset {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+#browser {
+    height: 300px;
+    width: 100%;
+    margin-top: 45px;
+}
+.list_container {
+    float: left;
+    height: 100%;
+}
+.list_container h2 {
+    height: 25px;
+    font-size: 14px; 
+    background-color: #ddd;
+    margin: 0;
+    padding: 3px;
+    position: absolute;
+    width: 100%;
+}
+.list_container .data {
+    float: left;
+    width: 100%;
+    padding-top: 32px;
+}
+#apis       { width: 25%; }
+#versions   { width: 9%; }
+#methods    { width: 25%; }
+#parameters { width: 40%; }
+.list_container .data .selected {
+    border: 1px solid #0f0;
+}
+#result {
+    width: 100%;
+}
