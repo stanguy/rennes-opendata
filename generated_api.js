@@ -10,6 +10,10 @@ $.stanguy.register_api(
                     network: {
                         type: "enum",
                         values: [ "levelostar" ]
+                    },
+                    request: {
+                        type: "enum",
+                        values: ["all","proximity","district","number"]
                     }
                 }
             }
