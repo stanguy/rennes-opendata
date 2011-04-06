@@ -59,4 +59,6 @@ div {
     text-align: right;
     width: 20%;
 }
+#parameters .data .action {
+    text-align: center;
 }

@@ -3,7 +3,31 @@ jQuery.stanguy = {};
 
 (function($){
      var known_apis = [];
+     var query_format = 'json';
      
+     function callRemoteMethod() {
+         var method_div = $('#methods .data .selected');
+         var version = $('#versions .data .selected').text();
+         var api_idx = parseInt( $('#apis .data .selected').data('idx') );
+         var method_name = method_div.data('name');
+         var method_info = known_apis[api_idx].versions[version].methods[method_name];
+         
+         var full_params = {
+             version: version,
+             key: $('#api_key').val(),
+             cmd: method_name
+         };
+         var meth_params = {};
+         
+         $.each( method_info.params, function( param_name, param_info ) {
+             var val = $('#p_' + param_name).val();
+             if ( val != null && val != "" ) {
+                 meth_params[param_name] = val;
+             }
+         });
+         full_params['param'] = meth_params;
+         console.log( known_apis[api_idx].versions[version].base_url + '/' + query_format + '/?' + $.param( full_params ) );
+     }
      function param2input( name, info ) {
          var input;
          if ( info.type == "enum" ) {
@@ -15,6 +39,7 @@ jQuery.stanguy = {};
          } else {
              input = $('<input type="text"></input>').attr( 'name', name );
          }
+         input.attr('id', 'p_' + name );
          return input;
      }
      
@@ -33,6 +58,11 @@ jQuery.stanguy = {};
              param_div.append( param2input( param_name, param_info ) );
              $('#parameters .data').append(param_div);
          });
+         var submit_div = $('<div></div>').addClass('action');
+         var submit = $('<input type="submit"></input>');
+         submit.click( callRemoteMethod );
+         submit_div.append( submit );
+         $('#parameters .data').append( submit_div );
      }
 
      function displayVersionMethods() {
