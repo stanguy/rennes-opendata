@@ -52,6 +52,8 @@ div {
 }
 #result {
     width: 100%;
+    position: absolute;
+    top: 350px;
 }
 #parameters .data span { 
     display: inline-block;

@@ -5,6 +5,21 @@ jQuery.stanguy = {};
      var known_apis = [];
      var query_format = 'json';
      
+     function onRemoteCallCompletion(jqXHR, textStatus) {
+         console.log( "completed" );
+         var full_response_div = $('<div></div>');
+         full_response_div.append(
+             $('<h2></h2>').text( this.method_name )
+         );
+         full_response_div.append( $('<h3>Request</h3>') );
+         full_response_div.append( 
+             $('<pre></pre>')
+                 .append( 'GET ' )
+                 .append( this.url )
+         );
+         
+         $('#result').append( full_response_div );
+     }
      function callRemoteMethod() {
          var method_div = $('#methods .data .selected');
          var version = $('#versions .data .selected').text();
@@ -26,7 +41,17 @@ jQuery.stanguy = {};
              }
          });
          full_params['param'] = meth_params;
-         console.log( known_apis[api_idx].versions[version].base_url + '/' + query_format + '/?' + $.param( full_params ) );
+         var base_url = known_apis[api_idx].versions[version].base_url;
+         var missing_slash = base_url.match('/$') ? '' : '/';
+         var req_url = base_url + query_format + missing_slash + '/?' + $.param( full_params );
+         $.ajax({
+            url: req_url,
+            complete: onRemoteCallCompletion,
+            context: {
+                method_name: method_name,
+                url: req_url
+            }
+         });
      }
      function param2input( name, info ) {
          var input;
