@@ -17,8 +17,17 @@ jQuery.stanguy = {};
                  .append( 'GET ' )
                  .append( this.url )
          );
-         
-         $('#result').append( full_response_div );
+         full_response_div.append( $('<h3>Response</h3>') );
+         full_response_div.append( 
+             $('<pre></pre>')
+                .append( jqXHR.status + " " )
+                .append( jqXHR.statusText )
+         );
+         full_response_div.append( 
+             $('<pre></pre>')
+                .append( js_beautify( jqXHR.responseText ) )
+         );
+         $('#result').prepend( full_response_div );
      }
      function callRemoteMethod() {
          var method_div = $('#methods .data .selected');
