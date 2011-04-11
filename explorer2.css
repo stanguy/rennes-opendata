@@ -28,6 +28,7 @@ div {
     float: left;
     height: 100%;
     position: relative;
+    border: 1px solid #ddd;
 }
 .list_container h2 {
     height: 25px;
@@ -42,13 +43,24 @@ div {
     float: left;
     width: 100%;
     padding-top: 32px;
+    height: 268px;
+}
+.list_container .data p {
+    color: #888;
+    margin: 4px 5px;
+}
+.list_container .data span.name {
+    font-weight: bold;
 }
 #apis       { width: 20%; }
 #versions   { width: 9%; }
 #methods    { width: 25%; }
 #parameters { width: 45%; }
+#apis .data div, #versions .data div {
+    padding: 10px 0;
+}
 .list_container .data .selected {
-    border: 1px solid #0f0;
+    background-color: #dde;
 }
 #result {
     width: 100%;

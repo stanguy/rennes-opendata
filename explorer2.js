@@ -90,6 +90,9 @@ jQuery.stanguy = {};
              var param_div = $('<div></div>');
              param_div.append( $('<span></span>').text(param_name + " =") );
              param_div.append( param2input( param_name, param_info ) );
+             if( param_info.description != null ) {
+                 param_div.append( $('<p></p>').text( param_info.description ) )
+             }
              $('#parameters .data').append(param_div);
          });
          var submit_div = $('<div></div>').addClass('action');
@@ -110,7 +113,8 @@ jQuery.stanguy = {};
          $('#parameters .data').html('');
          $.each( methods_info, function( method_name, data ){
              var method_div = $('<div></div>')
-                 .append(method_name);
+                 .append( $('<span></span>').text( method_name ).addClass( 'name') )
+                 .append( $('<p></p>').text( data.description ) );
              method_div.data('name',method_name)
              method_div.click( displayMethodParameters );
              $('#methods .data').append(method_div);

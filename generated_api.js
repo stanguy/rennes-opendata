@@ -10,13 +10,36 @@ $.stanguy.register_api(
                 params: {
                     network: {
                         type: "enum",
-                        values: [ "levelostar" ]
+                        values: [ "levelostar" ],
+                        description: "The network identifier."                        
                     },
                     request: {
                         type: "enum",
-                        values: ["all","proximity","district","number"]
+                        values: ["all","proximity","district","number"],
+                        description: "The filter type"
+                    },
+                    mode: {
+                        type: "enum",
+                        values: ["id", "coord"],
+                        description: "The kind of proximity look up."
+                    },
+                    value: {
+                        type: "string",
+                        description: "From the specified station/district."
+                    },
+                    lat: {
+                        type: "number",
+                        description: "The point latitude."
+                    },
+                    long: {
+                        type: "number",
+                        description: "The point longitude."
                     }
                 }
+            },
+            getdistrict: {
+                description: "Retrieves the districts.",
+                params: {}
             }
         }
     }
