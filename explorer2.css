@@ -14,6 +14,9 @@ div {
     height: 45px;
     width: 100%;
 }
+#explorer #head h1 {
+    margin: 5px;
+}
 #explorer #head fieldset {
     position: absolute;
     right: 0;
@@ -44,6 +47,7 @@ div {
     width: 100%;
     padding-top: 32px;
     height: 268px;
+    overflow: auto;
 }
 .list_container .data p {
     color: #888;
@@ -75,4 +79,7 @@ div {
 }
 #parameters .data .action {
     text-align: center;
+}
+#parameters .data p {
+    padding-left: 20%; /* amazed that this works */
 }

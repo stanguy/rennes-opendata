@@ -59,7 +59,33 @@ $.stanguy.register_api(
                         values: [ "levelostar" ]
                     }
                 }
-            }
+            },
+			getbikedistricts: {
+				description: "Retrieves districts",
+				params: {
+					network: {
+						type: "enum",
+						values: [ "levelostar" ]
+					}
+				}
+			},
+			getlinesalerts: {
+				description: "Retrieves lines alerts",
+				params: {
+					network: {
+						type: "enum",
+						values: [ "star" ]
+					},
+					mode: {
+						type: "enum",
+						values: [ "all", "line" ]
+					},
+					line: {
+						type: "string",
+						description: "The line name."
+					}
+				}
+			}
         }
     }
 );

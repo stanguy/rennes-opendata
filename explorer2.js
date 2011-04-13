@@ -6,7 +6,6 @@ jQuery.stanguy = {};
      var query_format = 'json';
      
      function onRemoteCallCompletion(jqXHR, textStatus) {
-         console.log( "completed" );
          var full_response_div = $('<div></div>');
          full_response_div.append(
              $('<h2></h2>').text( this.method_name )
@@ -62,6 +61,12 @@ jQuery.stanguy = {};
             }
          });
      }
+	 function checkInputSubmit(e) {
+         var code = (e.keyCode ? e.keyCode : e.which);
+         if ( code == 13 /* enter */ ) {
+		     callRemoteMethod();
+		 }		
+	 }
      function param2input( name, info ) {
          var input;
          if ( info.type == "enum" ) {
@@ -72,6 +77,7 @@ jQuery.stanguy = {};
              }
          } else {
              input = $('<input type="text"></input>').attr( 'name', name );
+			 input.keyup( checkInputSubmit );
          }
          input.attr('id', 'p_' + name );
          return input;
