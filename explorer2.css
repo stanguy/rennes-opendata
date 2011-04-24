@@ -1,0 +1,85 @@
+div { 
+    /*border: 1px solid red;*/
+}
+#explorer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+#explorer #head {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 45px;
+    width: 100%;
+}
+#explorer #head h1 {
+    margin: 5px;
+}
+#explorer #head fieldset {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+#browser {
+    height: 300px;
+    width: 100%;
+    margin-top: 45px;
+}
+.list_container {
+    float: left;
+    height: 100%;
+    position: relative;
+    border: 1px solid #ddd;
+}
+.list_container h2 {
+    height: 25px;
+    font-size: 14px; 
+    background-color: #ddd;
+    margin: 0;
+    padding: 3px;
+    position: absolute;
+    width: 100%;
+}
+.list_container .data {
+    float: left;
+    width: 100%;
+    padding-top: 32px;
+    height: 268px;
+    overflow: auto;
+}
+.list_container .data p {
+    color: #888;
+    margin: 4px 5px;
+}
+.list_container .data span.name {
+    font-weight: bold;
+}
+#apis       { width: 20%; }
+#versions   { width: 9%; }
+#methods    { width: 25%; }
+#parameters { width: 45%; }
+#apis .data div, #versions .data div {
+    padding: 10px 0;
+}
+.list_container .data .selected {
+    background-color: #dde;
+}
+#result {
+    width: 100%;
+    position: absolute;
+    top: 350px;
+}
+#parameters .data span { 
+    display: inline-block;
+    padding-right: 10px;
+    text-align: right;
+    width: 20%;
+}
+#parameters .data .action {
+    text-align: center;
+}
+#parameters .data p {
+    padding-left: 20%; /* amazed that this works */
+}

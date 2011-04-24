@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="explorer2.css">
+    <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  </head>
+  
+  <body>
+    <div id="explorer">
+      <div id="head">
+        <h1>Explorateur d'API OpenData de Rennes Métropole</h1>
+        <fieldset>
+          <label for="api_key">API Key:</label>
+          <input id="api_key" name="api_key" type="text">
+        </fieldset>
+      </div>
+      <div id="browser">
+        <div id="apis" class="list_container">
+          <h2>API</h2>
+          <div class="data"></div>
+        </div>
+        <div id="versions" class="list_container">
+          <h2>Versions</h2>
+          <div class="data"></div>
+        </div>
+        <div id="methods" class="list_container">
+          <h2>Methods</h2>
+          <div class="data"></div>
+        </div>
+        <div id="parameters" class="list_container">
+          <h2>Parameters</h2>
+          <div class="data"></div>
+        </div>
+      </div>
+    </div>
+    <div id="result">
+    </div>
+  </body>
+  <script type="text/javascript"
+          src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script type="text/javascript"
+          src="beautify.js"></script>
+  <script type="text/javascript"
+          src="explorer2.js"></script>
+  <script type="text/javascript"
+          src="generated_api.js"></script>
+</html>

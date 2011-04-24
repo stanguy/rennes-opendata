@@ -9,6 +9,14 @@ Consider this an interactive API explorer. On the left, you will find available 
 
 Obviously, you must provide your own registered API key.
 
+h2. mechain.html
+
+When fetching organizations using the OpenData API, we get both an address and a position for organizations. How accurates are they really? This page provides a basic interface to getorganization and computes the distance between the known position and the position retrieved using Google's geocoder. If the distance is over 1000 meters a warning color is applied on the list.
+
+It takes too long to execute? Well, Google's geocoder has a limit on the number of requests, so I explicitely limit the rate of my requests to do a maximum of those.
+
+Oh, and yeah, obviously, again, bring your own API key.
+
 h1. License
 
 All the code here is under the WTFPL, unless otherwise noted.
