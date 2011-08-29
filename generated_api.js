@@ -31,7 +31,7 @@ $.stanguy.register_api(
                         type: "number",
                         description: "The point latitude."
                     },
-                    long: {
+                    'long': {
                         type: "number",
                         description: "The point longitude."
                     }
@@ -60,32 +60,49 @@ $.stanguy.register_api(
                     }
                 }
             },
-			getbikedistricts: {
-				description: "Retrieves districts",
-				params: {
-					network: {
-						type: "enum",
-						values: [ "levelostar" ]
-					}
-				}
-			},
-			getlinesalerts: {
-				description: "Retrieves lines alerts",
-				params: {
-					network: {
-						type: "enum",
-						values: [ "star" ]
-					},
-					mode: {
-						type: "enum",
-						values: [ "all", "line" ]
-					},
-					line: {
-						type: "string",
-						description: "The line name."
-					}
-				}
-			}
+	    getbikedistricts: {
+	      description: "Retrieves districts",
+	      params: {
+		network: {
+		  type: "enum",
+		  values: [ "levelostar" ]
+		}
+	      }
+	    },
+            getlines: {
+              description: "Retrieves lines",
+              params: {
+                network: {
+                  type: "enum",
+                  values: ['star']
+                },
+                mode: {
+                  type: 'enum',
+                  values: ['all']
+                },
+                size: {
+                  type: 'enum',
+                  values: ['21','100','300','1000']
+                }
+              }
+            },
+	    getlinesalerts: {
+	      description: "Retrieves lines alerts",
+	      params: {
+		network: {
+		  type: "enum",
+		  values: [ "star" ]
+		},
+		mode: {
+		  type: "enum",
+		  values: [ "all", "line" ]
+		},
+		line: {
+		  type: "string",
+		  description: "The line name."
+		}
+	      }
+	    }
         }
     }
 );
